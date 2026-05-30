@@ -715,6 +715,8 @@
       </div>
       <div class="nav-links">
         <span class="nav-ticker-badge">$HOONK</span>
+        <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+        <a href="LINK_BUY_DISINI" target="_blank" class="btn-yellow" style="font-size:0.85rem;padding:8px 16px;">🛒 BUY $HOONK</a>
         <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="btn-purple" style="font-size:0.85rem;padding:8px 16px;">𝕏 Twitter</a>
         <a href="https://t.me/hoonkgoosehoonk" target="_blank" class="btn-yellow" style="font-size:0.85rem;padding:8px 16px;">Telegram</a>
       </div>
@@ -750,12 +752,14 @@
         </div>
 
         <div class="ca-box">
-          <a href="https://nad.fun" target="_blank" class="btn-yellow" style="display:inline-flex;align-items:center;gap:8px;font-size:1.1rem;padding:12px 32px;margin-bottom:16px;letter-spacing:3px;text-decoration:none;">
+          <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+          <a href="LINK_BUY_DISINI" target="_blank" class="btn-yellow" style="display:inline-flex;align-items:center;gap:8px;font-size:1.1rem;padding:12px 32px;margin-bottom:16px;letter-spacing:3px;text-decoration:none;">
             BUY ON NAD.FUN
           </a>
           <div style="border-top:1px solid rgba(255,215,0,0.2);padding-top:14px;">
             <p class="ca-label">CONTRACT ADDRESS</p>
-            <p class="ca-value">SOON</p>
+            <!-- ═══ GANTI CA DI SINI ═══ -->
+            <p class="ca-value" id="caValue">SOON</p>
             <p class="ca-sub">Launching on <span>nad.fun</span></p>
           </div>
         </div>
@@ -967,7 +971,8 @@
           <p class="footer-col-title">NAVIGATE</p>
           <ul class="footer-links">
             <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a></li>
-            <li><a href="https://nad.fun" target="_blank">Buy on nad.fun</a></li>
+            <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+            <li><a href="LINK_BUY_DISINI" target="_blank">Buy $HOONK</a></li>
             <li><a href="https://x.com/HoonkGooseHoonk" target="_blank">Twitter / X</a></li>
             <li><a href="https://t.me/hoonkgoosehoonk" target="_blank">Telegram</a></li>
           </ul>
@@ -1006,74 +1011,26 @@
     };
     buildTicker();
 
-    // ─── HOONK SOUND (Web Audio API synthesized honk) ───
-    let audioCtx = null;
-    function getAudioCtx() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      return audioCtx;
-    }
+    // ─── HOONK SOUND (Real goose honk from myinstants) ───
+    // Source: https://www.myinstants.com/en/instant/goose-honk-44161/
+    const HONK_SOUND_URL = 'https://www.myinstants.com/media/sounds/goose-honk.mp3';
+    let currentHonkAudio = null;
+
     function playHoonk(pitchMult) {
       pitchMult = pitchMult || 1;
       try {
-        const ctx = getAudioCtx();
-        if (ctx.state === 'suspended') ctx.resume();
-
-        const now = ctx.currentTime;
-        const duration = 0.38;
-
-        // Main tone oscillator
-        const osc = ctx.createOscillator();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(310 * pitchMult, now);
-        osc.frequency.exponentialRampToValueAtTime(195 * pitchMult, now + duration * 0.65);
-        osc.frequency.exponentialRampToValueAtTime(210 * pitchMult, now + duration);
-
-        // Vibrato LFO
-        const lfo = ctx.createOscillator();
-        const lfoGain = ctx.createGain();
-        lfo.frequency.value = 14;
-        lfoGain.gain.value = 8 * pitchMult;
-        lfo.connect(lfoGain);
-        lfoGain.connect(osc.frequency);
-
-        // Noise layer for breathiness
-        const bufferSize = ctx.sampleRate * duration;
-        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const data = noiseBuffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.3;
-        const noiseSource = ctx.createBufferSource();
-        noiseSource.buffer = noiseBuffer;
-
-        // Bandpass filter on noise
-        const bpf = ctx.createBiquadFilter();
-        bpf.type = 'bandpass';
-        bpf.frequency.value = 600 * pitchMult;
-        bpf.Q.value = 2.5;
-        noiseSource.connect(bpf);
-
-        // Gain envelope
-        const gainNode = ctx.createGain();
-        gainNode.gain.setValueAtTime(0, now);
-        gainNode.gain.linearRampToValueAtTime(0.28, now + 0.025);
-        gainNode.gain.setValueAtTime(0.28, now + duration * 0.55);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, now + duration);
-
-        const noiseGain = ctx.createGain();
-        noiseGain.gain.setValueAtTime(0, now);
-        noiseGain.gain.linearRampToValueAtTime(0.08, now + 0.02);
-        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + duration * 0.7);
-
-        osc.connect(gainNode);
-        bpf.connect(noiseGain);
-        gainNode.connect(ctx.destination);
-        noiseGain.connect(ctx.destination);
-
-        osc.start(now);
-        osc.stop(now + duration);
-        lfo.start(now);
-        lfo.stop(now + duration);
-        noiseSource.start(now);
-        noiseSource.stop(now + duration);
+        if (currentHonkAudio) {
+          currentHonkAudio.pause();
+          currentHonkAudio.currentTime = 0;
+        }
+        const audio = new Audio(HONK_SOUND_URL);
+        audio.volume = Math.min(1, Math.max(0.3, 0.65 + (pitchMult - 1) * 0.25));
+        audio.playbackRate = Math.min(2, Math.max(0.5, pitchMult));
+        currentHonkAudio = audio;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
       } catch(e) {}
     }
 
