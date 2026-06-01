@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOONKGOOSEHOONK | Monad Mainnet Meme Coin</title>
+  <meta name="description" content="HOONKGOOSEHOONK - The most viral goose meme coin on Monad Mainnet. Launching on nad.fun. Join the HOONK army!" />
+  <meta property="og:title" content="HOONKGOOSEHOONK" />
+  <meta property="og:description" content="The most viral goose meme coin on Monad Mainnet. Launching on nad.fun. Join the HOONK army!" />
+  <meta property="og:image" content="https://i.imgur.com/V1YOKrf.jpg" />
+  <link rel="icon" type="image/jpeg" href="https://i.imgur.com/V1YOKrf.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7c3aed;
+      --purple-light: #a855f7;
+      --purple-dark: #1a0a3a;
+      --yellow: #ffd700;
+      --yellow-dark: #b8860b;
+      --bg: #0d0520;
+    }
+
+    body {
+      font-family: 'Bangers', 'Impact', sans-serif;
+      background: linear-gradient(135deg, #0d0520 0%, #1a0a3a 40%, #0f0825 70%, #1a0530 100%);
+      color: #f5f5f5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a0a3a; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#7c3aed, #ffd700); border-radius: 4px; }
+
+    *, *::before, *::after {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 2 L2 16 L6 11 L10 19 L13 17.5 L9 9.5 L15 9.5 Z' fill='%237c3aed' stroke='%23ffd700' stroke-width='0.8' stroke-linejoin='round'/%3E%3C/svg%3E") 2 2, auto !important;
+    }
+    a, button, [role='button'] {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 2 L2 16 L6 11 L10 19 L13 17.5 L9 9.5 L15 9.5 Z' fill='%23a855f7' stroke='%23ffd700' stroke-width='0.8' stroke-linejoin='round'/%3E%3C/svg%3E") 2 2, pointer !important;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page { position: relative; z-index: 1; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-12px) rotate(-3deg); }
+      66% { transform: translateY(-6px) rotate(3deg); }
+    }
+    @keyframes honkPulse {
+      0%, 100% { text-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 80px #b8860b; transform: scale(1); }
+      50% { text-shadow: 0 0 40px #ffd700, 0 0 80px #ffd700, 0 0 120px #ffd700; transform: scale(1.03); }
+    }
+    @keyframes borderGlow {
+      0%, 100% { box-shadow: 0 0 8px #ffd700, 0 0 20px #ffd700, inset 0 0 8px rgba(255,215,0,0.1); }
+      50% { box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700, 0 0 60px #b8860b, inset 0 0 15px rgba(255,215,0,0.2); }
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+      50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+      70% { transform: scale(0.95) rotate(-2deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0) rotate(0) scale(1); }
+      10% { transform: translateX(-8px) rotate(-5deg) scale(1.05); }
+      20% { transform: translateX(8px) rotate(5deg) scale(1.08); }
+      30% { transform: translateX(-6px) rotate(-3deg) scale(1.1); }
+      40% { transform: translateX(6px) rotate(3deg) scale(1.08); }
+      50% { transform: translateX(-4px) rotate(-2deg) scale(1.05); }
+      60% { transform: translateX(4px) rotate(2deg) scale(1.05); }
+      70% { transform: translateX(-2px) rotate(-1deg) scale(1.02); }
+      80% { transform: translateX(2px) rotate(1deg) scale(1.02); }
+      90% { transform: translateX(-1px) rotate(0deg) scale(1.01); }
+    }
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes hoonkTextPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.15); text-shadow: 0 0 60px #ffd700, 0 0 100px #ffd700; }
+      70% { transform: scale(0.97); }
+      100% { transform: scale(1); }
+    }
+    @keyframes videoPulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(255,215,0,0.5), 0 0 60px rgba(124,58,237,0.4); }
+      50% { box-shadow: 0 0 50px rgba(255,215,0,0.9), 0 0 100px rgba(124,58,237,0.7); }
+    }
+    @keyframes roadmapFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+      background: rgba(13,5,32,0.7);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 2px solid #ffd700;
+      object-fit: cover;
+      box-shadow: 0 0 12px #ffd700;
+    }
+    .nav-logo-text {
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      color: #ffd700;
+      text-shadow: 1px 1px 0 #7c3aed;
+    }
+    .nav-links { display: flex; gap: 10px; align-items: center; }
+    .nav-ticker-badge {
+      background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(124,58,237,0.2));
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: #ffd700;
+    }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      background: linear-gradient(90deg, #7c3aed, #5b21b6, #7c3aed);
+      border-top: 1px solid rgba(255,215,0,0.3);
+      border-bottom: 1px solid rgba(255,215,0,0.3);
+      overflow: hidden;
+      padding: 8px 0;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      animation: tickerScroll 22s linear infinite;
+    }
+    .ticker-inner:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 28px;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: #ffd700;
+      text-shadow: 0 0 8px rgba(255,215,0,0.6);
+    }
+    .ticker-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #ffd700;
+      box-shadow: 0 0 6px #ffd700;
+      flex-shrink: 0;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-yellow {
+      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      color: #1a0a3a;
+      font-weight: 900;
+      font-family: 'Bangers', Impact, sans-serif;
+      letter-spacing: 2px;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      box-shadow: 0 4px 20px rgba(255,215,0,0.5);
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+    .btn-yellow:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(255,215,0,0.7); }
+    .btn-purple {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #ffd700;
+      font-weight: 900;
+      font-family: 'Bangers', Impact, sans-serif;
+      letter-spacing: 2px;
+      border: 2px solid #ffd700;
+      border-radius: 50px;
+      padding: 8px 22px;
+      font-size: 1rem;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.5);
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+    .btn-purple:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(124,58,237,0.7); }
+
+    /* ─── HERO ─── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      padding: 70px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-left {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      width: 260px; height: 260px;
+      cursor: pointer;
+      animation: float 3s ease-in-out infinite;
+    }
+    .hero-logo-inner {
+      border-radius: 50%;
+      border: 6px solid #ffd700;
+      overflow: hidden;
+      width: 260px; height: 260px;
+      animation: borderGlow 2s ease-in-out infinite;
+    }
+    .hero-logo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-ring {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255,215,0,0.4);
+      animation: spin-slow 8s linear infinite;
+    }
+    .hero-ring-2 {
+      position: absolute;
+      inset: -28px;
+      border-radius: 50%;
+      border: 1px dashed rgba(168,85,247,0.25);
+      animation: spin-slow 14s linear infinite reverse;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      letter-spacing: 4px;
+      color: #ffd700;
+      text-shadow: 4px 4px 0 #7c3aed, 8px 8px 0 rgba(124,58,237,0.5), 0 0 40px #ffd700;
+      line-height: 1.05;
+      animation: honkPulse 2s ease-in-out infinite;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: #c084fc;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px rgba(192,132,252,0.5);
+    }
+
+    .network-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.4), rgba(255,215,0,0.15));
+      border: 2px solid rgba(255,215,0,0.5);
+      border-radius: 50px;
+      padding: 10px 24px;
+      box-shadow: 0 0 20px rgba(255,215,0,0.2);
+      width: fit-content;
+    }
+    .network-label { font-size: 1.05rem; letter-spacing: 3px; color: #ffd700; }
+    .network-live {
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      color: #ffd700;
+      font-size: 0.72rem;
+      padding: 2px 10px;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      border: 1px solid #ffd700;
+    }
+
+    .ca-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(255,215,0,0.1));
+      border: 2px solid #ffd700;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255,215,0,0.3);
+      padding: 22px 28px;
+      max-width: 440px;
+    }
+    .ca-label { font-size: 0.8rem; color: #c084fc; letter-spacing: 4px; margin-bottom: 6px; }
+    .ca-value { font-size: 2rem; letter-spacing: 6px; color: #ffd700; text-shadow: 0 0 20px #ffd700; }
+    .ca-sub { font-family: sans-serif; font-size: 0.72rem; color: #9ca3af; letter-spacing: 1px; margin-top: 6px; }
+    .ca-sub span { color: #c084fc; font-family: 'Bangers', sans-serif; }
+
+    /* ─── STATS COUNTER ─── */
+    .stats-section {
+      background: linear-gradient(90deg, rgba(124,58,237,0.25), rgba(255,215,0,0.08), rgba(124,58,237,0.25));
+      border-top: 1px solid rgba(255,215,0,0.2);
+      border-bottom: 1px solid rgba(255,215,0,0.2);
+      padding: 40px 24px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-item {}
+    .stat-value {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: #ffd700;
+      text-shadow: 0 0 20px rgba(255,215,0,0.6);
+      display: block;
+    }
+    .stat-label {
+      font-family: sans-serif;
+      font-size: 0.72rem;
+      color: #9ca3af;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION ─── */
+    section { padding: 60px 24px; border-top: 1px solid rgba(255,215,0,0.1); }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #ffd700;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 0 #7c3aed, 0 0 20px rgba(255,215,0,0.5);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* ─── CARDS ─── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(255,215,0,0.08));
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(124,58,237,0.4); }
+    .card-img {
+      width: 72px; height: 72px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid rgba(255,215,0,0.5);
+      box-shadow: 0 0 12px rgba(255,215,0,0.3);
+      margin: 0 auto 12px;
+      display: block;
+    }
+    .card-title { font-size: 1.1rem; letter-spacing: 3px; color: #ffd700; margin-bottom: 8px; }
+    .card-desc { font-family: sans-serif; font-size: 0.82rem; color: #c4b5fd; line-height: 1.5; }
+
+    /* ─── TOKENOMICS ─── */
+    .tknomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .tknomics-card {
+      background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(124,58,237,0.2));
+      border: 2px solid rgba(255,215,0,0.4);
+      border-radius: 16px;
+      padding: 20px 14px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255,215,0,0.1);
+    }
+    .tknomics-label { font-size: 0.75rem; letter-spacing: 3px; color: #9ca3af; margin-bottom: 6px; }
+    .tknomics-value { font-size: 1.5rem; letter-spacing: 2px; color: #ffd700; text-shadow: 0 0 15px rgba(255,215,0,0.5); margin-bottom: 4px; }
+    .tknomics-desc { font-family: sans-serif; font-size: 0.72rem; color: #c4b5fd; }
+
+    /* ─── ROADMAP ─── */
+    .roadmap-section { padding: 60px 24px; border-top: 1px solid rgba(255,215,0,0.1); }
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .roadmap-grid::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #ffd700, #7c3aed);
+      z-index: 0;
+    }
+    .roadmap-card {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 12px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .roadmap-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .roadmap-card:nth-child(2) { transition-delay: 0.15s; }
+    .roadmap-card:nth-child(3) { transition-delay: 0.3s; }
+    .roadmap-card:nth-child(4) { transition-delay: 0.45s; }
+    .roadmap-dot {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      border: 3px solid #ffd700;
+      box-shadow: 0 0 20px rgba(255,215,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+    .roadmap-phase {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      color: #a855f7;
+      margin-bottom: 4px;
+    }
+    .roadmap-title {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: #ffd700;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .roadmap-items {
+      list-style: none;
+      text-align: center;
+    }
+    .roadmap-items li {
+      font-family: sans-serif;
+      font-size: 0.78rem;
+      color: #c4b5fd;
+      line-height: 1.8;
+    }
+    .roadmap-items li::before {
+      content: '→ ';
+      color: #ffd700;
+    }
+
+    /* ─── HOONKHOONKHOONK VIDEO ─── */
+    .hoonk-video-section {
+      padding: 60px 24px;
+      border-top: 1px solid rgba(255,215,0,0.1);
+      text-align: center;
+    }
+    .hoonk-video-title {
+      font-size: clamp(2rem, 6vw, 4rem);
+      letter-spacing: 6px;
+      color: #ffd700;
+      text-shadow: 4px 4px 0 #7c3aed, 0 0 40px #ffd700;
+      margin-bottom: 8px;
+      animation: honkPulse 1.8s ease-in-out infinite;
+      display: inline-block;
+    }
+    .hoonk-video-title.popping {
+      animation: hoonkTextPop 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+    }
+    .hoonk-video-subtitle {
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      color: #c4b5fd;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+    .hoonk-video-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+    .hoonk-video-frame {
+      position: relative;
+      display: inline-block;
+      border-radius: 20px;
+      padding: 6px;
+      background: linear-gradient(135deg, #ffd700, #a855f7, #ffd700);
+      animation: videoPulse 2s ease-in-out infinite;
+      cursor: pointer;
+    }
+    .hoonk-video-frame-inner {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0d0520;
+      line-height: 0;
+    }
+    .hoonk-video-frame video {
+      display: block;
+      width: min(520px, 90vw);
+      height: auto;
+      border-radius: 14px;
+    }
+
+    /* ─── GALLERY ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item { position: relative; cursor: pointer; }
+    .gallery-frame {
+      border: 4px solid #ffd700;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #ffd700, 0 0 20px rgba(255,215,0,0.4);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-frame:hover { transform: scale(1.05); box-shadow: 0 0 20px #ffd700, 0 0 40px rgba(255,215,0,0.6); }
+    .gallery-frame img { width: 100%; height: 175px; object-fit: cover; display: block; }
+    .gallery-frame.shaking { animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+    .honk-popup {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .honk-popup.show { display: flex; }
+    .honk-popup span {
+      font-size: 2rem;
+      color: #ffd700;
+      text-shadow: 2px 2px 0 #7c3aed, 0 0 20px #ffd700;
+      letter-spacing: 4px;
+      animation: bounceIn 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    }
+
+    /* ─── HOW TO BUY ─── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .step-card {
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(168,85,247,0.4);
+      border-radius: 16px;
+      padding: 24px 14px;
+      text-align: center;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .step-card:hover { transform: translateY(-4px); }
+    .step-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #7c3aed, #a855f7);
+      border: 2px solid #ffd700;
+      border-radius: 50px;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #ffd700;
+    }
+    .step-icon { font-size: 1.8rem; margin: 8px 0; }
+    .step-title { font-size: 1rem; letter-spacing: 2px; color: #ffd700; margin-bottom: 6px; }
+    .step-desc { font-family: sans-serif; font-size: 0.78rem; color: #c4b5fd; }
+
+    /* ─── COMMUNITY ─── */
+    .community-section {
+      padding: 60px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255,215,0,0.1);
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(255,215,0,0.05));
+    }
+    .community-desc {
+      font-family: sans-serif;
+      font-size: 0.95rem;
+      color: #c4b5fd;
+      max-width: 500px;
+      margin: 0 auto 28px;
+      line-height: 1.5;
+    }
+    .community-btns { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 48px 40px 28px;
+      border-top: 1px solid rgba(255,215,0,0.2);
+      background: rgba(13,5,32,0.8);
+    }
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer-col {}
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .footer-logo img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid #ffd700; object-fit: cover; }
+    .footer-logo-text { font-size: 1rem; letter-spacing: 3px; color: #ffd700; }
+    .footer-tagline { font-family: sans-serif; font-size: 0.78rem; color: #9ca3af; line-height: 1.6; }
+    .footer-col-title { font-size: 0.85rem; letter-spacing: 3px; color: #ffd700; margin-bottom: 12px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      font-family: sans-serif;
+      font-size: 0.78rem;
+      color: #c4b5fd;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #ffd700; }
+    .footer-social-row { display: flex; gap: 10px; margin-top: 8px; }
+    .footer-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Bangers', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      padding: 7px 14px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .footer-social-btn.x {
+      background: #000;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .footer-social-btn.x:hover { background: #111; transform: translateY(-2px); }
+    .footer-social-btn.tg {
+      background: #229ED9;
+      color: #fff;
+    }
+    .footer-social-btn.tg:hover { background: #1a8bc4; transform: translateY(-2px); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,215,0,0.1);
+      padding-top: 20px;
+      text-align: center;
+    }
+    .footer-copy { font-family: sans-serif; font-size: 0.72rem; color: #6b7280; }
+    .footer-disc { font-family: sans-serif; font-size: 0.67rem; color: #4b5563; margin-top: 6px; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        gap: 32px;
+        padding: 48px 20px;
+        text-align: center;
+      }
+      .hero-right { align-items: center; }
+      .hero-logo-wrap { width: 190px; height: 190px; }
+      .hero-logo-inner { width: 190px; height: 190px; }
+      .roadmap-grid::before { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 10px; }
+      .nav-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="page">
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">
+        <img src="https://i.imgur.com/V1YOKrf.jpg" alt="Logo" onerror="this.src='https://placehold.co/44x44/7c3aed/ffd700?text=G'" />
+        <span class="nav-logo-text">HOONKGOOSEHOONK</span>
+      </div>
+      <div class="nav-links">
+        <span class="nav-ticker-badge">$HOONK</span>
+        <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+        <a href="https://nad.fun" target="_blank" class="btn-yellow" style="font-size:0.85rem;padding:8px 16px;">🛒 BUY $HOONK</a>
+        <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="btn-purple" style="font-size:0.85rem;padding:8px 16px;">𝕏 Twitter</a>
+        <a href="https://t.me/hoonkgoosehoonk" target="_blank" class="btn-yellow" style="font-size:0.85rem;padding:8px 16px;">Telegram</a>
+      </div>
+    </nav>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+      <div class="ticker-inner" id="tickerInner">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- HERO (2-column) -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-logo-wrap" onclick="shakeHero(this)" title="Click me!">
+          <div class="hero-logo-inner">
+            <img src="https://i.imgur.com/V1YOKrf.jpg" alt="HOONKGOOSEHOONK Hero" onerror="this.src='https://placehold.co/260x260/7c3aed/ffd700?text=G'" />
+          </div>
+          <div class="hero-ring"></div>
+          <div class="hero-ring-2"></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <h1 class="hero-title">HOONK<br>GOOSE<br>HOONK</h1>
+        <p class="hero-subtitle">THE GOOSE IS LOOSE ON MONAD</p>
+
+        <div class="network-badge">
+          <span>⛓️</span>
+          <span class="network-label">MONAD MAINNET</span>
+          <span class="network-live">LIVE</span>
+        </div>
+
+        <div class="ca-box">
+          <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+          <a href="https://nad.fun" target="_blank" class="btn-yellow" style="display:inline-flex;align-items:center;gap:8px;font-size:1.1rem;padding:12px 32px;margin-bottom:16px;letter-spacing:3px;text-decoration:none;">
+            BUY ON NAD.FUN
+          </a>
+          <div style="border-top:1px solid rgba(255,215,0,0.2);padding-top:14px;">
+            <p class="ca-label">CONTRACT ADDRESS</p>
+            <!-- ═══ GANTI CA DI SINI ═══ -->
+            <p class="ca-value" id="caValue">SOON</p>
+            <p class="ca-sub">Launching on <span>nad.fun</span></p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="btn-yellow">𝕏 Follow on X</a>
+          <a href="https://t.me/hoonkgoosehoonk" target="_blank" class="btn-purple">Join Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS COUNTER -->
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-value" data-target="10000" data-suffix="+" id="stat0">0</span>
+          <span class="stat-label">Community Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="420690" data-suffix="" id="stat1">0</span>
+          <span class="stat-label">Total Hoonks</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="1000000000" data-suffix="" id="stat2">0</span>
+          <span class="stat-label">$HOONK Supply</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" data-target="100" data-suffix="%" id="stat3">0</span>
+          <span class="stat-label">Vibe Level</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section>
+      <h2 class="section-title">WHAT IS HOONKGOOSEHOONK?</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <img src="https://i.imgur.com/nYdXGSG.jpg" alt="THE GOOSE" class="card-img" onerror="this.style.display='none'" />
+          <h3 class="card-title">THE GOOSE</h3>
+          <p class="card-desc">The most chaotic bird on Monad. Hoonk at your neighbours. Hoonk at the bears.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/6MGTBit.jpg" alt="MONAD NATIVE" class="card-img" onerror="this.style.display='none'" />
+          <h3 class="card-title">MONAD NATIVE</h3>
+          <p class="card-desc">Built on Monad Mainnet — blazing fast, ultra-cheap, maximum hoonk energy.</p>
+        </div>
+        <div class="card">
+          <img src="https://i.imgur.com/nwjo5oc.jpg" alt="NAD.FUN LAUNCH" class="card-img" onerror="this.style.display='none'" />
+          <h3 class="card-title">NAD.FUN LAUNCH</h3>
+          <p class="card-desc">Launching on nad.fun. Be early. Be loud. Hoonk louder than everyone else.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section>
+      <h2 class="section-title">TOKENOMICS</h2>
+      <div class="tknomics-grid">
+        <div class="tknomics-card">
+          <p class="tknomics-label">TAX</p>
+          <p class="tknomics-value">0/0</p>
+          <p class="tknomics-desc">No tax. Pure Hoonk.</p>
+        </div>
+        <div class="tknomics-card">
+          <p class="tknomics-label">SUPPLY</p>
+          <p class="tknomics-value">1B</p>
+          <p class="tknomics-desc">1,000,000,000 $HOONK</p>
+        </div>
+        <div class="tknomics-card">
+          <p class="tknomics-label">LP</p>
+          <p class="tknomics-value">BUY BACK</p>
+          <p class="tknomics-desc">Buy back &amp; burn mechanism</p>
+        </div>
+        <div class="tknomics-card">
+          <p class="tknomics-label">MINT</p>
+          <p class="tknomics-value">REVOKED</p>
+          <p class="tknomics-desc">No rugs. Only honks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <div class="roadmap-section">
+      <h2 class="section-title">ROADMAP</h2>
+      <div class="roadmap-grid" id="roadmapGrid">
+        <div class="roadmap-card">
+          <div class="roadmap-dot">🚀</div>
+          <p class="roadmap-phase">PHASE 1</p>
+          <h3 class="roadmap-title">THE HATCH</h3>
+          <ul class="roadmap-items">
+            <li>Deploy $HOONK on nad.fun</li>
+            <li>Launch website</li>
+            <li>Twitter & Telegram go live</li>
+            <li>First 1,000 holders</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-dot">🦢</div>
+          <p class="roadmap-phase">PHASE 2</p>
+          <h3 class="roadmap-title">THE HONK</h3>
+          <ul class="roadmap-items">
+            <li>10,000 community members</li>
+            <li>CEX listings (we honk loud)</li>
+            <li>Meme contest & airdrops</li>
+            <li>Goose merch drop</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-dot">🌕</div>
+          <p class="roadmap-phase">PHASE 3</p>
+          <h3 class="roadmap-title">THE MOON</h3>
+          <ul class="roadmap-items">
+            <li>$HOONK on Tier-1 CEX</li>
+            <li>Goose game release</li>
+            <li>100,000 holders</li>
+            <li>Hoonk DAO launched</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-dot">🌌</div>
+          <p class="roadmap-phase">PHASE 4</p>
+          <h3 class="roadmap-title">HOONK UNIVERSE</h3>
+          <ul class="roadmap-items">
+            <li>Global goose domination</li>
+            <li>Monad ecosystem king</li>
+            <li>The goose never stops</li>
+            <li>HOONK HOONK HOONK</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOONKHOONKHOONK VIDEO -->
+    <div class="hoonk-video-section">
+      <h2 id="hoonkVideoTitle" class="hoonk-video-title">HOONK HOONK HOONK</h2>
+      <p class="hoonk-video-subtitle">Click the video. Feel the hoonk.</p>
+      <div class="hoonk-video-wrap">
+        <div class="hoonk-video-frame" onclick="popHoonkTitle()" title="HOONK!">
+          <div class="hoonk-video-frame-inner">
+            <video autoplay loop muted playsinline
+              onerror="this.outerHTML='<img src=\'https://i.imgur.com/VAFadW0.gif\' style=\'display:block;width:min(520px,90vw);height:auto;border-radius:14px;\' alt=\'HOONK\' />'">
+              <source src="https://i.imgur.com/VAFadW0.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <section>
+      <h2 class="section-title">GOOSE GALLERY</h2>
+      <p style="font-family:sans-serif;font-size:0.88rem;color:#c4b5fd;text-align:center;margin-bottom:24px;letter-spacing:1px;">Click on a goose to make it HOONK!</p>
+      <div class="gallery-grid" id="gallery"></div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section>
+      <h2 class="section-title">HOW TO HOONK</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">STEP 01</div>
+          <div class="step-icon">💜</div>
+          <h3 class="step-title">GET MONAD</h3>
+          <p class="step-desc">Acquire MON tokens on Monad Mainnet</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">STEP 02</div>
+          <div class="step-icon">🌐</div>
+          <h3 class="step-title">GO TO NAD.FUN</h3>
+          <p class="step-desc">Visit nad.fun when we launch</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">STEP 03</div>
+          <div class="step-icon">🔍</div>
+          <h3 class="step-title">FIND HOONK</h3>
+          <p class="step-desc">Search for HOONKGOOSEHOONK or paste CA</p>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">STEP 04</div>
+          <div class="step-icon">🦢</div>
+          <h3 class="step-title">BUY &amp; HOONK</h3>
+          <p class="step-desc">Ape in and join the goose army!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <div class="community-section">
+      <h2 class="section-title">JOIN THE HONK ARMY</h2>
+      <p class="community-desc">The goose is spreading across Monad. Join our community before the CA drops!</p>
+      <div class="community-btns">
+        <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="btn-yellow" style="font-size:1.1rem;padding:16px 40px;">𝕏 Follow on X</a>
+        <a href="https://t.me/hoonkgoosehoonk" target="_blank" class="btn-purple" style="font-size:1.1rem;padding:16px 40px;">Join Telegram</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="https://i.imgur.com/V1YOKrf.jpg" alt="logo" onerror="this.src='https://placehold.co/36x36/7c3aed/ffd700?text=G'" />
+            <span class="footer-logo-text">HOONKGOOSEHOONK</span>
+          </div>
+          <p class="footer-tagline">The most chaotic goose on Monad Mainnet. Launching on nad.fun. HOONK or get HOONK'd.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">NAVIGATE</p>
+          <ul class="footer-links">
+            <li><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a></li>
+            <!-- ═══ GANTI LINK BUY DI SINI ═══ -->
+            <li><a href="https://nad.fun" target="_blank">Buy $HOONK</a></li>
+            <li><a href="https://x.com/HoonkGooseHoonk" target="_blank">Twitter / X</a></li>
+            <li><a href="https://t.me/hoonkgoosehoonk" target="_blank">Telegram</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">COMMUNITY</p>
+          <div class="footer-social-row">
+            <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="footer-social-btn x">𝕏 Twitter</a>
+            <a href="https://t.me/hoonkgoosehoonk" target="_blank" class="footer-social-btn tg">Telegram</a>
+          </div>
+          <p style="font-family:sans-serif;font-size:0.72rem;color:#9ca3af;margin-top:14px;line-height:1.5;">
+            $HOONK · Monad Mainnet<br>Ticker: <span style="color:#ffd700;">$HOONK</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 HOONKGOOSEHOONK · Monad Mainnet · Launching on nad.fun</p>
+        <p class="footer-disc">This is a meme coin with no intrinsic value. Not financial advice. HOONK responsibly.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // ─── TICKER ───
+    const tickerItems = [
+      '$HOONK', 'GOOSE IS LOOSE', 'MONAD MAINNET', 'NAD.FUN LAUNCH',
+      '$HOONK TO THE MOON', 'BUY & HOONK', '0 TAX', '1B SUPPLY',
+      '$HOONK', 'HOONK HOONK HOONK', 'MONAD ECOSYSTEM', 'JOIN THE ARMY'
+    ];
+    const tickerInner = document.getElementById('tickerInner');
+    const buildTicker = () => {
+      const doubled = [...tickerItems, ...tickerItems];
+      tickerInner.innerHTML = doubled.map(t =>
+        `<span class="ticker-item"><span class="ticker-dot"></span>${t}</span>`
+      ).join('');
+    };
+    buildTicker();
+
+    // ─── HOONK SOUND (Real goose honk from myinstants) ───
+    // Source: https://www.myinstants.com/en/instant/goose-honk-44161/
+    const HONK_SOUND_URL = 'https://www.myinstants.com/media/sounds/goose-honk.mp3';
+    let currentHonkAudio = null;
+
+    function playHoonk(pitchMult) {
+      pitchMult = pitchMult || 1;
+      try {
+        if (currentHonkAudio) {
+          currentHonkAudio.pause();
+          currentHonkAudio.currentTime = 0;
+        }
+        const audio = new Audio(HONK_SOUND_URL);
+        audio.volume = Math.min(1, Math.max(0.3, 0.65 + (pitchMult - 1) * 0.25));
+        audio.playbackRate = Math.min(2, Math.max(0.5, pitchMult));
+        currentHonkAudio = audio;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      } catch(e) {}
+    }
+
+    // ─── HOONK VIDEO POP ───
+    function popHoonkTitle() {
+      playHoonk(0.85);
+      const title = document.getElementById('hoonkVideoTitle');
+      title.classList.remove('popping');
+      void title.offsetWidth;
+      title.classList.add('popping');
+      setTimeout(() => title.classList.remove('popping'), 700);
+    }
+
+    // ─── GALLERY ───
+    const images = [
+      "https://i.imgur.com/ZTw8Sl0.jpg","https://i.imgur.com/Ur5R3E9.jpg",
+      "https://i.imgur.com/X72X4nt.jpg","https://i.imgur.com/Hx3IHyv.jpg",
+      "https://i.imgur.com/YBGlgZV.jpg","https://i.imgur.com/5jZPyr1.jpg",
+      "https://i.imgur.com/xCwxFcA.jpg","https://i.imgur.com/q8ijFXa.jpg",
+      "https://i.imgur.com/ajO1B3k.jpg","https://i.imgur.com/RuepjVh.jpg",
+      "https://i.imgur.com/ay36cEA.jpg","https://i.imgur.com/ASd9UmJ.jpg",
+      "https://i.imgur.com/RZXUsFq.jpg","https://i.imgur.com/Y8pyKFm.jpg",
+      "https://i.imgur.com/iDmHT8Q.jpg","https://i.imgur.com/Z0bv2zY.jpg",
+      "https://i.imgur.com/FuLwHU9.jpg","https://i.imgur.com/MBqwlez.jpg",
+      "https://i.imgur.com/CL1Qdwh.jpg","https://i.imgur.com/cGVN94R.jpg",
+      "https://i.imgur.com/A4Fzkl1.jpg","https://i.imgur.com/pAvbYSJ.jpg",
+      "https://i.imgur.com/T8xZh5S.jpg","https://i.imgur.com/bRm38TC.jpg",
+      "https://i.imgur.com/PVIBa92.jpg"
+    ];
+    const gallery = document.getElementById('gallery');
+    images.forEach((src, i) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `
+        <div class="gallery-frame" id="frame-${i}">
+          <img src="${src}" alt="HOONK ${i+1}" onerror="this.src='https://placehold.co/160x175/7c3aed/ffd700?text=HOONK'" loading="lazy" />
+        </div>
+        <div class="honk-popup" id="honk-${i}"><span>HOONK!</span></div>
+      `;
+      item.onclick = () => hoonkImage(i);
+      gallery.appendChild(item);
+    });
+
+    function hoonkImage(i) {
+      const pitches = [1, 1.15, 0.88, 1.25, 0.75, 1.05];
+      playHoonk(pitches[i % pitches.length]);
+      const frame = document.getElementById('frame-' + i);
+      const popup = document.getElementById('honk-' + i);
+      frame.classList.add('shaking');
+      popup.classList.add('show');
+      setTimeout(() => { frame.classList.remove('shaking'); popup.classList.remove('show'); }, 700);
+    }
+
+    function shakeHero(el) {
+      playHoonk(1.3);
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = 'shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97)';
+      setTimeout(() => { el.style.animation = 'float 3s ease-in-out infinite'; }, 700);
+    }
+
+    // ─── STATS COUNTER ───
+    function formatNumber(n) {
+      if (n >= 1000000000) return (n / 1000000000).toFixed(0) + 'B';
+      if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+      if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
+      return n.toString();
+    }
+    function animateCounter(el, target, suffix, duration) {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const val = Math.floor(ease * target);
+        el.textContent = formatNumber(val) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = formatNumber(target) + suffix;
+      };
+      requestAnimationFrame(step);
+    }
+    const statsSection = document.querySelector('.stats-section');
+    let statsTriggered = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !statsTriggered) {
+        statsTriggered = true;
+        document.querySelectorAll('[data-target]').forEach(el => {
+          animateCounter(el, +el.dataset.target, el.dataset.suffix, 1800);
+        });
+      }
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+
+    // ─── ROADMAP SCROLL REVEAL ───
+    const roadmapCards = document.querySelectorAll('.roadmap-card');
+    const rmObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    roadmapCards.forEach(c => rmObserver.observe(c));
+
+    // ─── PARTICLES (SVG goose — no emoji) ───
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    // Pre-render a white goose SVG into an Image object
+    const gooseSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 34">
+      <ellipse cx="20" cy="22" rx="13" ry="10" fill="white" opacity="0.95"/>
+      <ellipse cx="30" cy="11" rx="7" ry="7" fill="white" opacity="0.95"/>
+      <ellipse cx="25.5" cy="17" rx="5" ry="7" fill="white" opacity="0.95"/>
+      <polygon points="37,11 44,9.5 37,13.5" fill="#ff9900"/>
+      <circle cx="32" cy="9" r="1.5" fill="#0d0520"/>
+      <ellipse cx="8" cy="20" rx="5" ry="4" fill="#e8e8e8" opacity="0.9" transform="rotate(-15,8,20)"/>
+      <line x1="16" y1="32" x2="13" y2="38" stroke="#ff9900" stroke-width="2" stroke-linecap="round"/>
+      <line x1="22" y1="32" x2="19" y2="38" stroke="#ff9900" stroke-width="2" stroke-linecap="round"/>
+    </svg>`;
+    const gooseImg = new Image();
+    gooseImg.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(gooseSVG);
+
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function createParticle(randomY) {
+      return {
+        x: Math.random() * window.innerWidth,
+        y: randomY ? Math.random() * window.innerHeight : -40,
+        speed: Math.random() * 0.7 + 0.25,
+        size: Math.random() * 22 + 14,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.025,
+        alpha: Math.random() * 0.4 + 0.2,
+        drift: (Math.random() - 0.5) * 0.5
+      };
+    }
+
+    for (let i = 0; i < 48; i++) particles.push(createParticle(true));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (particles.length < 55 && Math.random() < 0.2) particles.push(createParticle(false));
+      particles = particles.filter(p => {
+        p.y += p.speed;
+        p.x += p.drift + Math.sin(p.y * 0.012) * 0.35;
+        p.rotation += p.rotSpeed;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.globalAlpha = p.alpha;
+        ctx.drawImage(gooseImg, -p.size / 2, -p.size / 2, p.size, p.size * 0.85);
+        ctx.restore();
+        return p.y < canvas.height + 50;
+      });
+      requestAnimationFrame(animate);
+    }
+    gooseImg.onload = animate;
+  </script>
+</body>
+</html>
