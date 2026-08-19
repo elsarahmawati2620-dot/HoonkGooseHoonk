@@ -597,9 +597,11 @@ body {
 .ca-value {
   color: var(--accent);
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-family: monospace;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+  word-break: break-all;
+  max-width: 320px;
 }
 
   </style>
@@ -637,12 +639,12 @@ body {
       <p class="tagline">3000 on-chain geese, minted by the curve</p>
       <p class="subtitle">One whole token mints one goose.<br>The shovel does the rest.</p>
       <div class="hero-buttons">
-        <a href="https://utoken.gg/" target="_blank" class="btn btn-primary">Buy $uGOOSE</a>
+        <a href="https://utoken.gg/token/0x35d69c5d9c60fbd85b7fbf1a952c4d325259179e" target="_blank" class="btn btn-primary">Buy $uGOOSE</a>
         <a href="https://x.com/HoonkGooseHoonk" target="_blank" class="btn btn-secondary">Follow on X</a>
       </div>
       <div class="ca-box">
-        <span class="ca-label">Contract Address</span>
-        <span class="ca-value">SOON</span>
+        <span class="ca-label">CA</span>
+        <span class="ca-value" title="Click to copy">0x35d69c5d9c60fbd85b7fbf1a952c4d325259179e</span>
       </div>
     </div>
   </header>
@@ -801,7 +803,7 @@ body {
         </ul>
       </div>
 
-      <p class="note">Contract Address: <strong style="color: var(--accent);">SOON</strong> — will be posted here and on official X <a href="https://x.com/HoonkGooseHoonk" target="_blank" style="color: var(--accent);">@HoonkGooseHoonk</a> first. Always verify.</p>
+      <p class="note">Contract Address: <strong style="color: var(--accent);">0x35d69c5d9c60fbd85b7fbf1a952c4d325259179e</strong> — always verify on official X <a href="https://x.com/HoonkGooseHoonk" target="_blank" style="color: var(--accent);">@HoonkGooseHoonk</a>.</p>
     </div>
   </section>
 
@@ -813,7 +815,7 @@ body {
         <div class="step">
           <div class="step-number">1</div>
           <h3>Open utoken.gg</h3>
-          <p>Go to <a href="https://utoken.gg/" target="_blank" style="color: var(--accent);">utoken.gg</a> once $uGOOSE is live.</p>
+          <p>Go to <a href="https://utoken.gg/token/0x35d69c5d9c60fbd85b7fbf1a952c4d325259179e" target="_blank" style="color: var(--accent);">utoken.gg</a> and buy $uGOOSE.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
@@ -871,7 +873,7 @@ body {
         </div>
         <div class="faq-item">
           <h3>When does it launch?</h3>
-          <p>Contract Address is currently <strong>SOON</strong>. It will be posted on this page and the official X <a href="https://x.com/HoonkGooseHoonk" target="_blank" style="color: var(--accent);">@HoonkGooseHoonk</a> first. Until then, there is no $uGOOSE.</p>
+          <p>Contract Address: <strong>0x35d69c5d9c60fbd85b7fbf1a952c4d325259179e</strong><br>Always verify on this page and official X <a href="https://x.com/HoonkGooseHoonk" target="_blank" style="color: var(--accent);">@HoonkGooseHoonk</a>.</p>
         </div>
       </div>
     </div>
@@ -912,6 +914,19 @@ if (ticker) {
   });
   ticker.parentElement.addEventListener('mouseleave', () => {
     ticker.style.animationPlayState = 'running';
+  });
+}
+
+// Copy CA on click
+const caValue = document.querySelector('.ca-value');
+if (caValue) {
+  caValue.style.cursor = 'pointer';
+  caValue.addEventListener('click', () => {
+    navigator.clipboard.writeText(caValue.textContent.trim()).then(() => {
+      const original = caValue.textContent;
+      caValue.textContent = 'Copied!';
+      setTimeout(() => { caValue.textContent = original; }, 1500);
+    });
   });
 }
   </script>
